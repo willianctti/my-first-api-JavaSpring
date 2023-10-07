@@ -1,0 +1,23 @@
+				M first api em JavaSpring
+
+
+
+1st controller:
+
+com um novo package chamado controller
+	teremos uma classe com o nome WelcomeController
+essa classe retornará apenas uma string.
+
+Para que possamos transformar essa classe em um componente Spring com a caracteristica de
+um componente REST, precisamos denomina-lo com a notação "RestController".
+Precisamos também mapear esse método. Para isso, denominamos como um recruso http
+do tipo Get utilizando "GetMapping".
+
+@RestController
+public class WelcomeController {
+
+    @GetMapping
+    public String welcome() {
+        return "Welcome to my Spring Boot Web Api";
+    }
+}
