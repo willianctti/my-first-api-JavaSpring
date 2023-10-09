@@ -13,6 +13,8 @@ um componente REST, precisamos denomina-lo com a notação "RestController".
 Precisamos também mapear esse método. Para isso, denominamos como um recruso http
 do tipo Get utilizando "GetMapping".
 
+
+
 @RestController
 public class WelcomeController {
 
@@ -21,3 +23,28 @@ public class WelcomeController {
         return "Welcome to my Spring Boot Web Api";
     }
 }
+
+
+
+				Mapeamento de recursos
+
+construindo uma pequena api, fiz uma classe UsuarioController que define alguns
+metodos do CRUD. Mapeamento com "metodo"Mapping e testes com o postman. Ex:
+
+
+
+ @GetMapping("/users")
+    public List<Usuario>getUsers(){
+        return repository.findAll();
+    }
+
+
+    @GetMapping("/users/{username}")
+    public Usuario findOne(@PathVariable("username") String username) {
+        return repository.findByUsername(username);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        repository.deleteById(id);
+    }
